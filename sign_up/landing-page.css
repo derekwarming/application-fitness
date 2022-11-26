@@ -1,0 +1,76 @@
+body {
+  margin: 0;
+}
+
+#header {
+  background-color: #FFFFFF;
+  width: 100%;
+  overflow: hidden;
+
+}
+
+#headertable {
+  border: 1px solid black;
+  width: 100%;
+    height: 9.018%;
+}
+
+#header1 {
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+  width: 33%;
+  border: 1px solid white;
+  text-align: left;
+  padding-left: 5.574%;
+}
+
+#header2 {
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 21.63px;
+  font-weight: bold;
+  width: 33%;
+  border: 1px solid white;
+  text-align: right;
+}
+
+#header3 {
+  color: #2284ED;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 21.63px;
+  font-weight: bold;
+  width: 16.5%;
+  border: 1px solid white;
+  text-align: left;
+}
+
+#header4 {
+  color: #2284ED;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 21.63px;
+  font-weight: bold;
+  width: 16.5%;
+  border: 1px solid white;
+  text-align: center;
+}
+
+#loginbutton {
+  width: 38.198%;
+  height: 61.805%;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 13.367px;
+  font-weight: bold;
+  background-color: #FFFFFF;
+  border: 1px solid #000;
+  color: black;
+  border-radius: 20px;
+}
+
+#section2 {
+  background-color: #1975BB;
+  height: 90.982%;
+  width: 100%;
+  border-bottom: 1px solid black;
+}
