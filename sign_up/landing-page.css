@@ -24,6 +24,10 @@ body {
   background-repeat: no-repeat;
 }
 
+.section2-table2 {
+  width: 100%;
+}
+
 #header1 {
   color: #000000;
   font-family: Arial, Helvetica, sans-serif;
@@ -78,20 +82,69 @@ body {
 }
 
 #sec2-table1 {
-  border: 1px solid none;
+  border: 1px solid white;
   text-align: left;
 }
 
 #sec2-table2 {
-  border: 1px solid none;
+  border: 1px solid white;
 }
 
 #sec2-table3 {
-  border: 1px solid none;
+  border: 1px solid white;
 }
 
 #sec2-table4 {
-  border: 1px solid none;
+  border: 1px solid white;
+}
+
+#sec2-table5 {
+  border: 1px solid white;
+  text-align: left;
+}
+
+#sec2-table6 {
+  border: 1px solid white;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size:7.281vw;
+  font-weight: bold;
+}
+
+#sec2-table7 {
+  border: 1px solid white;
+}
+
+#sec2-table8 {
+  border: 1px solid white;
+}
+
+#sec2-table9 {
+  border: 1px solid white;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size:4.5vw;
+}
+
+#sec2-table10 {
+  border: 1px solid white;
+}
+
+#sec2-table11 {
+  border: 1px solid white;
+}
+
+#sec2-table12 {
+  border: 1px solid white;
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  font-size:1.719vw;
+}
+
+#sec2-table13 {
+  border: 1px solid white;
 }
 
 #sec2-logo {
