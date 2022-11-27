@@ -21,6 +21,7 @@ body {
   border-bottom: 9px solid black;
   background-image: url("background1.jpg");
   background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 #header1 {
