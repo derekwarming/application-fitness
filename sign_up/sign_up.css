@@ -16,7 +16,7 @@ body {
 }
 
 .sign-up-main1 {
-  border: 1px solid black;
+  border: 1px solid white;
 }
 
 .sign-up-table1 {
@@ -231,4 +231,76 @@ body {
 
 #button5:focus {
   border-color: #EF5800;
+}
+
+#height {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#height:hover {
+  border-color: #F69318;
+}
+
+#height:focus {
+  border-color: #F69318;
+}
+
+#button6 {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#button6:hover {
+  border-color: #EF5800;
+}
+
+#button6:focus {
+  border-color: #EF5800;
+}
+
+#current-weight {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#current-weight:hover {
+  border-color: #F69318;
+}
+
+#current-weight:focus {
+  border-color: #F69318;
+}
+
+#current-weight2 {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#current-weight2:hover {
+  border-color: #F69318;
+}
+
+#current-weight2:focus {
+  border-color: #F69318;
 }
