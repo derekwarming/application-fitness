@@ -1,0 +1,162 @@
+body {
+  margin: 0;
+}
+
+.header2 {
+  background-color: #FFFFFF;
+  width: 100%;
+  position: sticky;
+  top: 0;
+}
+
+.header-table2 {
+  border: 1px solid black;
+  width: 100%;
+  height: 9.018%;
+}
+
+.sign-up-main1 {
+  border: 1px solid black;
+}
+
+.sign-up-table1 {
+  border: 1px solid red;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3.444%;
+}
+
+.sign-up-table2 {
+  border: 1px solid purple;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign-up-table3 {
+  border: 1px solid pink;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign-up-table4 {
+  border: 1px solid red;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#header1 {
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+  width: 33%;
+  border: 1px solid white;
+  text-align: left;
+  padding-left: 5.574%;
+  background-image: url("logo2.png");
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+
+#header2 {
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17.499px;
+  font-weight: bold;
+  width: 33%;
+  border: 1px solid white;
+  text-align: right;
+}
+
+#header3 {
+  color: #2284ED;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17.499px;
+  font-weight: bold;
+  width: 16.5%;
+  border: 1px solid white;
+  text-align: left;
+}
+
+#header4 {
+  color: #2284ED;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 21.63px;
+  font-weight: bold;
+  width: 16.5%;
+  border: 1px solid white;
+  text-align: center;
+}
+
+#row1 {
+  border: 1px solid green;
+  font-size: 200%;
+  font-weight: normal;
+  padding-bottom: 4.236%;
+}
+
+#row2 {
+  border: 1px solid yellow;
+}
+
+#button1 {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#button1:hover {
+  border-color: #F69318;
+}
+
+#button1:focus {
+  border-color: #F69318;
+}
+
+#button2 {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#button2:hover {
+  border-color: #EF5800;
+}
+
+#button2:focus {
+  border-color: #EF5800;
+}
+
+#row3 {
+  border: 1px solid blue;
+  font-size: 200%;
+  font-weight: normal;
+  padding-bottom: 4.236%;
+  padding-top: 4.236%;
+}
+
+#row4 {
+  border: 1px solid yellow;
+}
+
+#date1 {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#date1:hover {
+  border-color: #EF5800;
+}
