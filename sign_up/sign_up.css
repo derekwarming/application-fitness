@@ -20,44 +20,48 @@ body {
 }
 
 .sign-up-table1 {
-  border: 1px solid red;
   margin-left: auto;
   margin-right: auto;
   margin-top: 3.444%;
+  border: 0.618px solid white;
+  border-radius: 4.236px;
 }
 
 .sign-up-table2 {
-  border: 1px solid purple;
+  border: 0.618px solid grey;
+  border-radius: 4.236px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .sign-up-table3 {
-  border: 1px solid pink;
+  border: 1px solid white;
   margin-left: auto;
   margin-right: auto;
 }
 
 .sign-up-table4 {
-  border: 1px solid red;
+  border: 0.618px solid grey;
+  border-radius: 4.236px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .sign-up-table5 {
-  border: 1px solid red;
+  border: 1px solid white;
   margin-left: auto;
   margin-right: auto;
 }
 
 .sign-up-table6 {
-  border: 1px solid purple;
+  border: 0.618px solid grey;
+  border-radius: 4.236px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .sign-up-table7 {
-  border: 1px solid green;
+  border: 1px solid white;
   margin-left: auto;
   margin-right: auto;
 }
@@ -107,14 +111,34 @@ body {
 }
 
 #row1 {
-  border: 1px solid green;
+  border: 1px solid white;
   font-size: 200%;
   font-weight: normal;
   padding-bottom: 4.236%;
 }
 
 #row2 {
-  border: 1px solid yellow;
+  border: 1px solid white;
+}
+
+#row3 {
+  border: 1px solid white;
+  font-size: 200%;
+  font-weight: normal;
+  padding-bottom: 4.236%;
+  padding-top: 4.236%;
+}
+
+#row4 {
+  border: 1px solid white;
+}
+
+#row5 {
+  border: 1px solid white;
+  font-size: 200%;
+  font-weight: normal;
+  padding-bottom: 4.236%;
+  padding-top: 4.236%;
 }
 
 #button1 {
@@ -151,18 +175,6 @@ body {
 
 #button2:focus {
   border-color: #EF5800;
-}
-
-#row3 {
-  border: 1px solid blue;
-  font-size: 200%;
-  font-weight: normal;
-  padding-bottom: 4.236%;
-  padding-top: 4.236%;
-}
-
-#row4 {
-  border: 1px solid yellow;
 }
 
 #date1 {
