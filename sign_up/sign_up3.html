@@ -1,33 +1,67 @@
 <html>
 <head>
 <title>Application Fitness - Build Your Profile</title>
+<link rel="stylesheet" href="sign_up.css">
 </head>
 <body>
-<h1 style="background-color:#2689C6;color:#FFFFFF;text-align:right;padding-right:2.129%;">Build Your Profile -></h1>
-<img src="3.png" width="100%">
-<h2 style="text-align:center;">Total planned daily eaten calories:</h2>
-<form style="text-align:center;">
-  <input type="number" placeholder="Eat (Calories)" name="planned_eat" style="background-color:#FFFFFF;color:#000000;width:23.608%;height:5%;">
-</form>
-<h2 style="text-align:center;">Total planned daily burned calories:</h2>
-<form style="text-align:center;">
-  <input type="number" placeholder="Burn (Calories)" name="planned_burn" style="background-color:#FFFFFF;color:#000000;width:23.608%;height:5%;">
-</form>
-<h2 style="text-align:center;">Almost there! What's your body type?</h2>
-<table style="margin-right:14.591%;margin-left:14.591%;">
-  <tr>
-    <th>Endomorph (Round)</th>
-    <th>Ectomorph (Slender)</th>
-    <th>Mesomorph (Athletic)</th>
-  </tr>
-  <tr style="text-align:center;">
-    <td><input type="image" src="endomorph.png"  width="38.198%"/></td>
-    <td><input type="image" src="ectomorph.png"  width="38.198%"/></td>
-    <td><input type="image" src="mesomorph.png"  width="38.198%"/></td>
-  </tr>
-  </table>
-<form style="text-align:center;">
-  <button style="background-color:#EE5800;color:#FFFFFF;width:23.608%;height:5%;">NEXT</button>
-</form>
+  <div class="header2">
+    <table class="header-table2">
+      <tr>
+      <th id="header1"></th>
+      <th id="header2"></th>
+      <th id="header3"></th>
+      <th id="header4"></th>
+    </tr>
+    </table>
+  </div>
+    <div class="sign-up-main1">
+      <table class="sign-up-table1">
+        <tr>
+          <th id="row1">Total planned daily eaten calories:</th>
+        </tr>
+      </table>
+      <table class="sign-up-table2">
+        <tr>
+          <td id="row2">
+            <input type="number" placeholder="Eat (Calories)" name="planned_eat" id="total-planned-daily-eaten-calories">
+          </td>
+        </tr>
+      </table>
+      <table class="sign-up-table3">
+        <tr>
+          <th id="row3">Total planned daily burned calories:</th>
+        </tr>
+      </table>
+      <table class="sign-up-table4">
+        <tr>
+          <td id="row4">
+          <input type="number" placeholder="Burn (Calories)" name="planned_burn" id="total-planned-daily-burned-calories">
+        </td>
+        </tr>
+      </table>
+      <table class="sign-up-table5">
+        <tr>
+          <th id="row1">Almost there! What's your body type?</th>
+        </tr>
+      </table>
+      <table class="sign-up-table6">
+        <tr>
+          <th id="row2">Endomorph (Round)</td>
+          <th id="row2">Ectomorph (Slender)</td>
+          <th id="row2">Mesomorph (Athletic)</td>
+        </tr>
+        <tr>
+          <td><input type="image" src="endomorph2.png" id="endo"/></td>
+          <td><input type="image" src="ectomorph.png" id="ecto"/></td>
+          <td><input type="image" src="mesomorph3.png" id="meso"/></td>
+        </tr>
+      </table>
+      <table class="sign-up-table7">
+        <tr>
+          <td id="row2"><a href="sign_up2.html"><button id="button6">BACK</button></a></td>
+          <td id="row2"><a href="sign_up4.html"><button id="button5">NEXT</button></a></td>
+        </tr>
+      </table>
+    </div>
 </body>
 </html>

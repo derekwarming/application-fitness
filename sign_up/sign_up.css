@@ -304,3 +304,90 @@ body {
 #current-weight2:focus {
   border-color: #F69318;
 }
+
+#total-planned-daily-eaten-calories {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#total-planned-daily-eaten-calories:hover {
+  border-color: #F69318;
+}
+
+#total-planned-daily-eaten-calories:focus {
+  border-color: #F69318;
+}
+
+#total-planned-daily-burned-calories {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#total-planned-daily-burned-calories:hover {
+  border-color: #F69318;
+}
+
+#total-planned-daily-burned-calories:focus {
+  border-color: #F69318;
+}
+
+#endo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 49.996%;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+}
+
+#endo:hover {
+  border-color: #EF5800;
+}
+
+#endo:focus {
+  border-color: #EF5800;
+}
+
+#ecto {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 49.996%;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+}
+
+#ecto:hover {
+  border-color: #EF5800;
+}
+
+#ecto:focus {
+  border-color: #EF5800;
+}
+
+#meso {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 49.996%;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+}
+
+#meso:hover {
+  border-color: #EF5800;
+}
+
+#meso:focus {
+  border-color: #EF5800;
+}
