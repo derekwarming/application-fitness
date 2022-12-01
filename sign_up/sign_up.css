@@ -391,3 +391,57 @@ body {
 #meso:focus {
   border-color: #EF5800;
 }
+
+#username {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#username:hover {
+  border-color: #F69318;
+}
+
+#username:focus {
+  border-color: #F69318;
+}
+
+#email {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#email:hover {
+  border-color: #F69318;
+}
+
+#email:focus {
+  border-color: #F69318;
+}
+
+#password {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#password:hover {
+  border-color: #F69318;
+}
+
+#password:focus {
+  border-color: #F69318;
+}
