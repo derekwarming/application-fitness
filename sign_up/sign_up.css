@@ -66,6 +66,10 @@ body {
   margin-right: auto;
 }
 
+.row2 {
+  border: 1px solid white;
+}
+
 #home-link {
   color: #000000;
   font-family: Arial, Helvetica, sans-serif;
