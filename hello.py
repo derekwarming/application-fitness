@@ -13,7 +13,7 @@ bootstrap = Bootstrap(app)
 def index():
     return render_template("index.html")
 
-@app.route("/user/<string:name>") #probably don't need this
+@app.route("/user/<string:name>")
 def user(name):
     return render_template("user.html", name=name)
 

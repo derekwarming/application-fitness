@@ -3,23 +3,29 @@
 {% block title %}Application Fitness{% endblock %}
 
 {% block navbar %}
-<div class="navbar navbar-inverse" role="navigation">
-  <div class="container">
-    <div class="navbar-header">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/general1.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/footer1.css')}}">
+<!--This may not be the official way to link a stylesheet-->
+
+<div class="navbar navbar-inverse" role="navigation" id="navbar">
+  <div class="container" id="navbar-container">
+    <div class="navbar-header" id="navbar-header">
       <button type="button" class="navbar-toggle"
       data-toggle="collapse" data-target=".navbar-collapse">
       <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
+      <span class="icon-bar" id="icon-bar1"></span>
+      <span class="icon-bar" id="icon-bar2"></span>
+      <span class="icon-bar" id="icon-bar3"></span>
     </button>
-    <a class="navbar-brand" href="/">Application Fitness</a>
-    <img src="{{ url_for('static',filename='styles/logo2.png')}}" id="sec2-logo">
+    <a class="navbar-brand2" href="/">
+      <img src="{{ url_for('static',filename='styles/logo4.png')}}" id="sec2-logo">
+    </a>
   </div>
-  <div class="navbar-collapse collapse">
-    <ul class="nav navbar-nav">
-      <li><a href="/">Home</a></li>
-      <li><a href="/">Blog</a></li>
+  <div class="navbar-collapse collapse" id="navbar0">
+    <ul class="nav navbar-nav" id="navbar1">
+      <li id="nav-text-home"><a href="/user/derek">Home</a></li>
+      <li id="nav-text-spaces"><a href="/spaces">Spaces</a></li>
+      <li id="nav-text-blog"><a href="/blog">Blog</a></li>
     </ul>
   </div>
 </div>
@@ -30,4 +36,68 @@
 <div class="container">
   {% block page_content %}{% endblock %}
 </div>
+{% endblock %}
+
+{% block footer %}
+<footer class="footer">
+  <table class="before-footer">
+    <tr>
+      <th id="b-footer1"></th>
+      <th id="b-footer2"></th>
+      <th id="b-footer3"></th>
+    </tr>
+  </table>
+  <table class="footer-table">
+    <tr>
+      <th id="footer1">Product</th>
+      <th id="footer2">Company</th>
+      <th id="footer3">Legal & Regulatory</th>
+    </tr>
+    <tr>
+      <th id="footer1-2">Placeholder</th>
+      <th id="footer2-2"></th>
+      <th id="footer3-2"></th>
+    </tr>
+    <tr>
+      <th id="footer4"><a href="/how-it-works">How it Works</a></th>
+      <th id="footer5"><a href="/about-us">About Us</a></th>
+      <th id="footer6"><a href="/terms-and-conditions">Terms & Conditions</a></th>
+    </tr>
+    <tr>
+      <th id="footer7"></th>
+      <th id="footer8"><a href="/blog">Blog</a></th>
+      <th id="footer9"><a href="/privacy">Privacy</a></th>
+    </tr>
+    <tr>
+      <th id="footer10"></th>
+      <th id="footer11"><a href="/corporate-values">Corporate Values</a></th>
+      <th id="footer12"></th>
+    </tr>
+    <tr>
+      <th id="footer13"></th>
+      <th id="footer14"><a href="/customer-relations">Customer Relations</a></th>
+      <th id="footer15"></th>
+    </tr>
+    <tr>
+      <th id="footer16"></th>
+      <th id="footer17"><a href="/support">Support</a></th>
+      <th id="footer18"></th>
+    </tr>
+    <tr>
+      <th id="footer19"></th>
+      <th id="footer20"><a href="/esg">ESG</a></th>
+      <th id="footer21"></th>
+    </tr>
+    <tr>
+      <th id="footer1-2">Placeholder</th>
+      <th id="footer2-2"></th>
+      <th id="footer3-2"></th>
+    </tr>
+    <tr>
+      <th id="footer22"></th>
+      <th id="footer23">© 2022 Application Fitness Inc. All rights reserved.</th>
+      <th id="footer24"></th>
+    </tr>
+  </table>
+</footer>
 {% endblock %}

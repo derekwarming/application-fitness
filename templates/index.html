@@ -1,5 +1,7 @@
 <html>
 <head>
+  <link rel="icon" type="image/png" href="{{ url_for('static',filename='styles/logo4.png')}}">
+  <!-- Favicon -->
 <title>Application Fitness</title>
 <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/landing-page.css')}}">
 <!--This may not be the official way to link a stylesheet-->
@@ -8,10 +10,10 @@
   <header class="header">
     <table class="header-table">
       <tr>
-      <th id="header1">Blog</th>
+      <th id="header1"><a href="/blog">Blog</a></th>
       <th id="header2">Premium starts at $4.99.</th>
-      <th id="header3">Learn More -></th>
-      <th id="header4"><button id="loginbutton">Log In</button></th>
+      <th id="header3"><a href="/plans" id="learn-more">Learn More -></a></th>
+      <th id="header4"><a href="/user/derek"><button id="loginbutton">Log In</button></th></a>
     </tr>
     </table>
 </header>
@@ -68,33 +70,33 @@
       <th id="footer3-2"></th>
     </tr>
     <tr>
-      <th id="footer4">How it Works</th>
-      <th id="footer5">About Us</th>
-      <th id="footer6">Terms & Conditions</th>
+      <th id="footer4"><a href="/how-it-works">How it Works</a></th>
+      <th id="footer5"><a href="/about-us">About Us</a></th>
+      <th id="footer6"><a href="/terms-and-conditions">Terms & Conditions</a></th>
     </tr>
     <tr>
       <th id="footer7"></th>
-      <th id="footer8">Blog</th>
-      <th id="footer9">Privacy</th>
+      <th id="footer8"><a href="/blog">Blog</a></th>
+      <th id="footer9"><a href="/privacy">Privacy</a></th>
     </tr>
     <tr>
       <th id="footer10"></th>
-      <th id="footer11">Corporate Values</th>
+      <th id="footer11"><a href="/corporate-values">Corporate Values</a></th>
       <th id="footer12"></th>
     </tr>
     <tr>
       <th id="footer13"></th>
-      <th id="footer14">Customer Relations</th>
+      <th id="footer14"><a href="/customer-relations">Customer Relations</a></th>
       <th id="footer15"></th>
     </tr>
     <tr>
       <th id="footer16"></th>
-      <th id="footer17">Support</th>
+      <th id="footer17"><a href="/support">Support</a></th>
       <th id="footer18"></th>
     </tr>
     <tr>
       <th id="footer19"></th>
-      <th id="footer20">ESG</th>
+      <th id="footer20"><a href="/esg">ESG</a></th>
       <th id="footer21"></th>
     </tr>
     <tr>
@@ -104,7 +106,7 @@
     </tr>
     <tr>
       <th id="footer22"></th>
-      <th id="footer23">© 2022 Application Fitness Inc. All rights reserved.</th>
+      <th id="footer23">© 2023 Application Fitness Inc. All rights reserved.</th>
       <th id="footer24"></th>
     </tr>
   </table>
