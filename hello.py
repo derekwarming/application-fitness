@@ -4,7 +4,10 @@ from flask import make_response
 from flask import redirect
 from flask import abort
 from flask import render_template
+from flask_bootstrap import Bootstrap
+
 app = Flask(__name__)
+bootstrap = Bootstrap(app)
 
 @app.route("/")
 def index():
@@ -14,9 +17,10 @@ def index():
 def user(name):
     return render_template("user.html", name=name)
 
-@app.route("/user/test/<id>") #probably don't need this
-def get_user(id):
-    user = load_user(id)
-    if not user:
-        abort(404)
-    return "Hello"
+@app.errorhandler(404) #404 error page
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500) #500 error page
+def internal_server_error(e):
+    return render_template('500.html'), 500
