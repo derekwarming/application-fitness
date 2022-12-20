@@ -93,6 +93,7 @@ body {
   background-image: url("logo2.png");
   background-size: auto 100%;
   background-repeat: no-repeat;
+  border: 1px solid green;
 }
 
 #header2 {

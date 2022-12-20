@@ -1,0 +1,477 @@
+body {
+  margin: 0;
+}
+
+.header2 {
+  background-color: #FFFFFF;
+  width: 100%;
+  position: sticky;
+  top: 0;
+}
+
+.header-table2 {
+  border: 1px solid black;
+  width: 100%;
+  height: 9.018%;
+}
+
+.sign-up-main1 {
+  border: 1px solid white;
+}
+
+.sign-up-table1 {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 3.444%;
+  border: 0.618px solid white;
+  border-radius: 4.236px;
+}
+
+.sign-up-table2 {
+  border: 0.618px solid grey;
+  border-radius: 4.236px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign-up-table3 {
+  border: 1px solid white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign-up-table4 {
+  border: 0.618px solid grey;
+  border-radius: 4.236px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign-up-table5 {
+  border: 1px solid white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign-up-table6 {
+  border: 0.618px solid grey;
+  border-radius: 4.236px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sign-up-table7 {
+  border: 1px solid white;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row2 {
+  border: 1px solid white;
+}
+
+#home-link {
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+  width: 33%;
+  border: 1px solid none;
+  text-align: left;
+  padding-left: 5.574%;
+}
+
+#headbrand1 {
+  border: 1px solid none;
+  vertical-align: middle;
+}
+
+#header1 {
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+  width: 33%;
+  border: 1px solid white;
+  text-align: left;
+  padding-left: 5.574%;
+  border: 1px solid none;
+}
+
+#header2 {
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17.499px;
+  font-weight: bold;
+  width: 33%;
+  border: 1px solid white;
+  text-align: right;
+}
+
+#header3 {
+  color: #2284ED;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 17.499px;
+  font-weight: bold;
+  width: 16.5%;
+  border: 1px solid white;
+  text-align: left;
+}
+
+#header4 {
+  color: #2284ED;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 21.63px;
+  font-weight: bold;
+  width: 16.5%;
+  border: 1px solid white;
+  text-align: center;
+}
+
+#row1 {
+  border: 1px solid white;
+  font-size: 200%;
+  font-weight: normal;
+  padding-bottom: 4.236%;
+}
+
+#row2 {
+  border: 1px solid white;
+}
+
+#row3 {
+  border: 1px solid white;
+  font-size: 200%;
+  font-weight: normal;
+  padding-bottom: 4.236%;
+  padding-top: 4.236%;
+}
+
+#row4 {
+  border: 1px solid white;
+}
+
+#row5 {
+  border: 1px solid white;
+  font-size: 200%;
+  font-weight: normal;
+  padding-bottom: 4.236%;
+  padding-top: 4.236%;
+}
+
+#button1 {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#button1:hover {
+  border-color: #F69318;
+}
+
+#button1:focus {
+  border-color: #F69318;
+}
+
+#button2 {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#button2:hover {
+  border-color: #EF5800;
+}
+
+#button2:focus {
+  border-color: #EF5800;
+}
+
+#date1 {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#date1:hover {
+  border-color: #EF5800;
+}
+
+#button3 {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#button3:hover {
+  border-color: #F69318;
+}
+
+#button3:focus {
+  border-color: #F69318;
+}
+
+#button4 {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#button4:hover {
+  border-color: #EF5800;
+}
+
+#button4:focus {
+  border-color: #EF5800;
+}
+
+#button5 {
+  background-color:#F69318;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#button5:hover {
+  border-color: #EF5800;
+}
+
+#button5:focus {
+  border-color: #EF5800;
+}
+
+#height {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#height:hover {
+  border-color: #F69318;
+}
+
+#height:focus {
+  border-color: #F69318;
+}
+
+#button6 {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#button6:hover {
+  border-color: #EF5800;
+}
+
+#button6:focus {
+  border-color: #EF5800;
+}
+
+#current-weight {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#current-weight:hover {
+  border-color: #F69318;
+}
+
+#current-weight:focus {
+  border-color: #F69318;
+}
+
+#current-weight2 {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#current-weight2:hover {
+  border-color: #F69318;
+}
+
+#current-weight2:focus {
+  border-color: #F69318;
+}
+
+#total-planned-daily-eaten-calories {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#total-planned-daily-eaten-calories:hover {
+  border-color: #F69318;
+}
+
+#total-planned-daily-eaten-calories:focus {
+  border-color: #F69318;
+}
+
+#total-planned-daily-burned-calories {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#total-planned-daily-burned-calories:hover {
+  border-color: #F69318;
+}
+
+#total-planned-daily-burned-calories:focus {
+  border-color: #F69318;
+}
+
+#endo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 49.996%;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+}
+
+#endo:hover {
+  border-color: #EF5800;
+}
+
+#endo:focus {
+  border-color: #EF5800;
+}
+
+#ecto {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 49.996%;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+}
+
+#ecto:hover {
+  border-color: #EF5800;
+}
+
+#ecto:focus {
+  border-color: #EF5800;
+}
+
+#meso {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 49.996%;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+}
+
+#meso:hover {
+  border-color: #EF5800;
+}
+
+#meso:focus {
+  border-color: #EF5800;
+}
+
+#username {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#username:hover {
+  border-color: #F69318;
+}
+
+#username:focus {
+  border-color: #F69318;
+}
+
+#email {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#email:hover {
+  border-color: #F69318;
+}
+
+#email:focus {
+  border-color: #F69318;
+}
+
+#password {
+  background-color:#FFFFFF;
+  color:#000000;
+  font-size:1.618rem;
+  font-weight: 400;
+  border: 1.618px solid grey;
+  border-radius: 4.236px;
+  padding: 1em;
+}
+
+#password:hover {
+  border-color: #F69318;
+}
+
+#password:focus {
+  border-color: #F69318;
+}

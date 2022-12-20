@@ -1,0 +1,53 @@
+<html>
+<head>
+  <link rel="icon" type="image/png" href="{{ url_for('static',filename='styles/logo4.png')}}">
+  <!-- Favicon -->
+<title>Application Fitness - Create Your Account</title>
+<link rel="stylesheet" href="sign_up.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/landing-page.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/sign_up2.css')}}">
+</head>
+<body>
+  <header class="header2">
+    <table class="header-table2">
+      <tr>
+      <th id="header1"><a href="/" id="home-link"><img src="{{ url_for('static',filename='styles/logo4.png')}}" id="headbrand1"></a></th>
+      <th id="header2"></th>
+      <th id="header3"></th>
+      <th id="header4"></th>
+    </tr>
+    </table>
+  </header>
+  <section class="sign-up-main1">
+    <table class="sign-up-table1">
+      <tr>
+        <th id="row1">Create your account.</th>
+      </tr>
+      <table class="sign-up-table2">
+        <tr>
+          <td class="row2">
+            <input type="text" placeholder="Username" name="username" id="username">
+          </td>
+        </tr>
+        <tr>
+          <td class="row2">
+            <input type="text" placeholder="Email" name="email" id="email">
+          </td>
+        </tr>
+        <tr>
+          <td class="row2">
+            <input type="text" placeholder="Password" name="password" id="password">
+          </td>
+        </tr>
+      </table>
+    </table>
+    <p style="text-align:center;">By signing up to Application Fitness, you agree to our Privacy Policy <span style="font-weight: bold; color: #3366CC;">[link]</span> and Terms of Service <span style="font-weight: bold; color: #3366CC;">[link]</span>.</p>
+    <table class="sign-up-table7">
+      <tr>
+        <td class="row2"><a href="sign_up3.html"><button id="button6">BACK</button></a></td>
+        <td class="row2"><a href="sign_up5.html"><button id="button5">NEXT</button></a></td>
+      </tr>
+    </table>
+  </section>
+</body>
+</html>

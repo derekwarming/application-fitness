@@ -1,0 +1,98 @@
+<html>
+<head>
+  <link rel="icon" type="image/png" href="{{ url_for('static',filename='styles/logo4.png')}}">
+  <!-- Favicon -->
+<title>Application Fitness - Build Your Profile</title>
+<link rel="stylesheet" href="sign_up.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/landing-page.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/sign_up2.css')}}">
+
+<!--This may not be the official way to link a stylesheet-->
+</head>
+<body>
+  <header class="header2">
+    <table class="header-table2">
+      <tr>
+      <th id="header1"><a href="/" id="home-link"><img src="{{ url_for('static',filename='styles/logo4.png')}}" id="headbrand1"></a></th>
+      <th id="header2"></th>
+      <th id="header3"></th>
+      <th id="header4"></th>
+    </tr>
+    </table>
+  </header>
+  <section class="sign-up-main1">
+    <table class="sign-up-table1">
+      <tr>
+        <th id="row1">What's your gender?</th>
+        <!-- For development purposes only -->
+        {% if gender %}Gender:{{ gender }}{% else %}none{% endif %}
+        <br>
+        {% if email %}Email:{{ email }}{% else %}{% endif %}
+        <br>
+        {% if password %}Password:{{ password }}{% else %}{% endif %}
+        <!-- For development purposes only -->
+      </tr>
+    </table>
+    <form method="POST">
+      {{ form2.hidden_tag() }}
+
+      <table class="sign-up-table2">
+        {% for subfield in form2.gender %}
+        <tr>
+          <td class="row2" id="button1">
+          <!-- <button >  -->
+          <!-- {{ form2.gender(id='button1') }} -->
+          {% if subfield.label.text == 'Male' %}
+          {{ subfield.label }} {{ subfield }}
+          {% endif %}
+          <!-- </button> -->
+          
+            {% if subfield.label.text == 'Female' %}
+            {{ subfield.label }} {{ subfield }}
+            {% endif %}
+          </td>
+          {% endfor %}
+        </tr>
+      </table>
+    <table class="sign-up-table3">
+      <tr>
+        <th id="row3">When's your birthday?</th>
+      </tr>
+    </table>
+    <table class="sign-up-table4">
+      <tr>
+        <td id="row4">
+        <input type="date" placeholder="MM/DD/YYYY" name="signup_date" id="date1">
+      </td>
+      </tr>
+    </table>
+    <table class="sign-up-table5">
+      <tr>
+        <th id="row5">Select your units.</th>
+      </tr>
+    </table>
+    <table class="sign-up-table6">
+      <tr>
+        <td class="row2"><button id="button3">IMPERIAL</button></td>
+        <td class="row2"><button id="button4">METRIC</button></td>
+      </tr>
+    </table>
+    <table class="sign-up-table7">
+      <tr>
+        <td class="row2">
+          <!-- <a href="templates/sign_up1.html">
+            <button id="button5">NEXT</button>
+          </a>  -->
+          {{ form2.submit(id='button5') }}
+        </td>
+      </tr>
+    </table>
+</form>
+<table class="sign-up-table7">
+  <tr>
+    <td class="row2"><a href="/sign_up1-2"><button id="button6">BACK</button></a></td>
+  </tr>
+</table>
+  </section>
+</body>
+</html>
