@@ -26,9 +26,9 @@
         <!-- For development purposes only -->
         {% if gender %}Gender:{{ gender }}{% else %}none{% endif %}
         <br>
-        {% if email %}Email:{{ email }}{% else %}{% endif %}
+        {% if birthday %}Birthday:{{ birthday }}{% else %}nothing going on dumb dumb{% endif %}
         <br>
-        {% if password %}Password:{{ password }}{% else %}{% endif %}
+        {% if units %}Units:{{ units }}{% else %}poop{% endif %}
         <!-- For development purposes only -->
       </tr>
     </table>
@@ -56,7 +56,9 @@
     <table class="sign-up-table4">
       <tr>
         <td id="row4">
-        <input type="date" placeholder="MM/DD/YYYY" name="signup_date" id="date1">
+          <div>
+        {{ form2.birthday(id="date1") }}
+      </div>
       </td>
       </tr>
     </table>
@@ -66,9 +68,17 @@
       </tr>
     </table>
     <table class="sign-up-table6">
+      {% for subfield in form2.units %}
       <tr>
-        <td class="row2"><button id="button3">IMPERIAL</button></td>
-        <td class="row2"><button id="button4">METRIC</button></td>
+        <td class="row2" id="button3">
+          {% if subfield.label.text == 'Imperial' %}
+          {{ subfield.label }} {{ subfield }}
+          {% endif %}
+          {% if subfield.label.text == 'Metric' %}
+          {{ subfield.label }} {{ subfield }}
+          {% endif %}
+        </td>
+        {% endfor %}
       </tr>
     </table>
     <table class="sign-up-table7">

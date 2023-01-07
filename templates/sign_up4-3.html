@@ -1,0 +1,96 @@
+<html>
+<head>
+  <link rel="icon" type="image/png" href="{{ url_for('static',filename='styles/logo4.png')}}">
+  <!-- Favicon -->
+<title>Application Fitness - Build Your Profile</title>
+<link rel="stylesheet" href="sign_up.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/landing-page.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/sign_up2.css')}}">
+<!--This may not be the official way to link a stylesheet-->
+</head>
+<body>
+  <header class="header2">
+    <table class="header-table2">
+      <tr>
+      <th id="header1"><a href="/" id="home-link"><img src="{{ url_for('static',filename='styles/logo4.png')}}" id="headbrand1"></a></th>
+      <th id="header2"></th>
+      <th id="header3"></th>
+      <th id="header4"></th>
+    </tr>
+    </table>
+  </header>
+    <section class="sign-up-main1">
+      <table class="sign-up-table1">
+        <tr>
+          <th id="row1">Total planned daily eaten calories:</th>
+          <!-- For development purposes only -->
+          {% if plandailyeat %}Planned Daily Eat:{{ plandailyeat }}{% else %}none{% endif %}
+          <br>
+          {% if plandailyburn %}Planned Daily Burn:{{ plandailyburn }}{% else %}nothing going on dumb dumb{% endif %}
+          <br>
+          {% if bodytype %}Body Type:{{ bodytype }}{% else %}poop{% endif %}
+          <!-- For development purposes only -->
+        </tr>
+      </table>
+      <form method="POST" style="text-align:center;">
+        {{ form4.hidden_tag() }}
+      <table class="sign-up-table2">
+        <tr>
+          <td class="row2">
+            {{ form4.plandailyeat(id="total-planned-daily-eaten-calories") }}
+          </td>
+        </tr>
+      </table>
+      <table class="sign-up-table3">
+        <tr>
+          <th id="row3">Total planned daily burned calories:</th>
+        </tr>
+      </table>
+      <table class="sign-up-table4">
+        <tr>
+          <td id="row4">
+          {{ form4.plandailyburn(id="total-planned-daily-burned-calories") }}
+        </td>
+        </tr>
+      </table>
+      <table class="sign-up-table5">
+        <tr>
+          <th id="row5">Almost there! What's your body type?</th>
+        </tr>
+      </table>
+      <table class="sign-up-table6">
+        {% for subfield in form4.bodytype %}
+        <tr>
+          <td class="row2" id="button1">
+            {% if subfield.label.text == 'Round' %}
+            {{ subfield.label }} {{ subfield }}
+            {% endif %}
+            {% if subfield.label.text == 'Slender' %}
+            {{ subfield.label }} {{ subfield }}
+            {% endif %}
+            {% if subfield.label.text == 'Athletic' %}
+            {{ subfield.label }} {{ subfield }}
+            {% endif %}
+          </td>
+          {% endfor %}
+        </tr>
+      </table>
+      <table class="sign-up-table7">
+        <tr>
+          <td class="row2">
+            <!-- <a href="sign_up3.html">
+              <button id="button5">NEXT</button>
+            </a>  -->
+            {{ form4.submit(id='button5') }}
+          </td>
+        </tr>
+      </table>
+    </form>
+      <table class="sign-up-table7">
+        <tr>
+          <td class="row2"><a href="/sign_up3-1"><button id="button6">BACK</button></a></td>
+        </tr>
+      </table>
+    </section>
+</body>
+</html>
