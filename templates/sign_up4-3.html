@@ -24,11 +24,11 @@
         <tr>
           <th id="row1">Total planned daily eaten calories:</th>
           <!-- For development purposes only -->
-          {% if plandailyeat %}Planned Daily Eat:{{ plandailyeat }}{% else %}none{% endif %}
+          {% if plan_daily_eat %}Planned Daily Eat:{{ plan_daily_eat }}{% else %}none{% endif %}
           <br>
-          {% if plandailyburn %}Planned Daily Burn:{{ plandailyburn }}{% else %}nothing going on dumb dumb{% endif %}
+          {% if plan_daily_burn %}Planned Daily Burn:{{ plan_daily_burn }}{% else %}nothing going on dumb dumb{% endif %}
           <br>
-          {% if bodytype %}Body Type:{{ bodytype }}{% else %}poop{% endif %}
+          {% if body_type %}Body Type:{{ body_type }}{% else %}poop{% endif %}
           <!-- For development purposes only -->
         </tr>
       </table>
@@ -37,7 +37,7 @@
       <table class="sign-up-table2">
         <tr>
           <td class="row2">
-            {{ form4.plandailyeat(id="total-planned-daily-eaten-calories") }}
+            {{ form4.plan_daily_eat(id="total-planned-daily-eaten-calories") }}
           </td>
         </tr>
       </table>
@@ -49,7 +49,7 @@
       <table class="sign-up-table4">
         <tr>
           <td id="row4">
-          {{ form4.plandailyburn(id="total-planned-daily-burned-calories") }}
+          {{ form4.plan_daily_burn(id="total-planned-daily-burned-calories") }}
         </td>
         </tr>
       </table>
@@ -59,7 +59,7 @@
         </tr>
       </table>
       <table class="sign-up-table6">
-        {% for subfield in form4.bodytype %}
+        {% for subfield in form4.body_type %}
         <tr>
           <td class="row2" id="button1">
             {% if subfield.label.text == 'Round' %}

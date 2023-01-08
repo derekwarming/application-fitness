@@ -24,11 +24,11 @@
       <tr>
         <th id="row1">What's your height?</th>
         <!-- For development purposes only -->
-        {% if height %}Height:{{ height }}{% else %}none{% endif %}
+        {% if height_inches %}Height:{{ height_inches }}{% else %}none{% endif %}
         <br>
-        {% if currentweight %}Current Weight:{{ currentweight }}{% else %}nothing going on dumb dumb{% endif %}
+        {% if weight_lbs %}Current Weight:{{ weight_lbs }}{% else %}nothing going on dumb dumb{% endif %}
         <br>
-        {% if goalweight %}Goal Weight:{{ goalweight }}{% else %}poop{% endif %}
+        {% if goal_weight_lbs %}Goal Weight:{{ goal_weight_lbs }}{% else %}poop{% endif %}
         <!-- For development purposes only -->
       </tr>
     </table>
@@ -37,7 +37,7 @@
     <table class="sign-up-table2">
       <tr>
         <td class="row2">
-          {{ form3.height() }}
+          {{ form3.height_inches(id="height_inches") }}
 </td>
       </tr>
     </table>
@@ -49,7 +49,7 @@
     <table class="sign-up-table2">
       <tr>
         <td class="row2">
-        {{ form3.currentweight(id="current-weight") }}
+        {{ form3.weight_lbs(id="current-weight") }}
       </td>
       </tr>
     </table>
@@ -61,7 +61,7 @@
     <table class="sign-up-table6">
       <tr>
         <td class="row2">
-        {{ form3.goalweight(id="goal-weight") }}
+        {{ form3.goal_weight_lbs(id="goal-weight") }}
       </td>
       </tr>
     </table>

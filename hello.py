@@ -13,13 +13,35 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, PasswordField, FieldList, FormField, RadioField, DateField, SelectField, IntegerField
 from wtforms.validators import DataRequired
 
+import os
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import column_property
+from sqlalchemy.sql import func
+
+basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
 app.config['SECRET_KEY'] = 'Nx_r9Uq/X)mZV,k;+6|WJQq5h^3<["'
 
+app.config['SQLALCHEMY_DATABASE_URI'] =\
+    'sqlite:///' + os.path.join(basedir, 'data.sqlite')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+db = SQLAlchemy(app)
+
+
+
 #shortcut icon located in bootstrap/base.html
+
+
+#Routes
+#
+#
+#
+#
+#
 
 @app.route("/")
 def index():
@@ -66,21 +88,32 @@ def signup2():
 def signup3():
     form3 = UserProfile2()
     if form3.validate_on_submit():
-        session['height'] = form3.height.data
-        session['currentweight'] = form3.currentweight.data
-        session['goalweight'] = form3.goalweight.data
+        session['height_inches'] = form3.height_inches.data
+        session['weight_lbs'] = form3.weight_lbs.data
+        session['goal_weight_lbs'] = form3.goal_weight_lbs.data
         return redirect(url_for('signup4'))
-    return render_template("sign_up3-1.html", form3=form3, height=session.get('height'), currentweight=session.get('currentweight'), goalweight=session.get('goalweight'))
+    return render_template("sign_up3-1.html", form3=form3, height_inches=session.get('height_inches'), weight_lbs=session.get('weight_lbs'), goal_weight_lbs=session.get('goal_weight_lbs'))
 
 @app.route("/sign_up4-3", methods=['GET', 'POST'])
 def signup4():
     form4 = UserProfile3()
     if form4.validate_on_submit():
-        session['plandailyeat'] = form4.plandailyeat.data
-        session['plandailyburn'] = form4.plandailyburn.data
-        session['bodytype'] = form4.bodytype.data
-        return redirect(url_for('signup4'))
-    return render_template("sign_up4-3.html", form4=form4, plandailyeat=session.get('plandailyeat'), plandailyburn=session.get('plandailyburn'), bodytype=session.get('bodytype'))
+        session['plan_daily_eat'] = form4.plan_daily_eat.data
+        session['plan_daily_burn'] = form4.plan_daily_burn.data
+        session['body_type'] = form4.body_type.data
+        return redirect(url_for('signup5'))
+    return render_template("sign_up4-3.html", form4=form4, plan_daily_eat=session.get('plan_daily_eat'), plan_daily_burn=session.get('plan_daily_burn'), body_type=session.get('body_type'))
+
+@app.route("/sign_up5-1")
+def signup5():
+    return render_template("sign_up5-1.html")
+
+#Error Pages
+#
+#
+#
+#
+#
 
 @app.errorhandler(404) #404 error page
 def page_not_found(e):
@@ -89,6 +122,13 @@ def page_not_found(e):
 @app.errorhandler(500) #500 error page
 def internal_server_error(e):
     return render_template('500.html'), 500
+
+# Forms
+#
+#
+#
+#
+#
 
 class CreateAccountForm(FlaskForm):
     username = StringField(render_kw={"placeholder": "Username"}, validators=[DataRequired()])
@@ -104,7 +144,7 @@ class UserProfile1(FlaskForm):
 
 class UserProfile2(FlaskForm):
     # height = inches
-    height = SelectField('height', choices=[
+    height_inches = SelectField('height_inches', choices=[
     ('36', '3 ft. 0 inch. / 91.44 cm'), ('37', '3 ft. 1 inch. / 93.98 cm'), ('38', '3 ft. 2 inch. / 96.52 cm'), ('39', '3 ft. 3 inch. / 99.06 cm'), ('40', '3 ft. 4 inch. / 101.6 cm'), ('41', '3 ft. 5 inch. / 104.14 cm'),
     ('42', '3 ft. 6 inch. / 106.68 cm'), ('43', '3 ft. 7 inch. / 109.22 cm'), ('44', '3 ft. 8 inch. / 111.76 cm'), ('45', '3 ft. 9 inch. / 114.3 cm'), ('46', '3 ft. 10 inch. / 116.84 cm'), ('47', '3 ft. 11 inch. / 119.38 cm'),
     ('48', '4 ft. 0 inch. / 121.92 cm'), ('49', '4 ft. 1 inch. / 124.46 cm'), ('50', '4 ft. 2 inch. / 127 cm'), ('51', '4 ft. 3 inch. / 129.54 cm'), ('52', '4 ft. 4 inch. / 132.08 cm'), ('53', '4 ft. 5 inch. / 134.62 cm'),
@@ -117,7 +157,7 @@ class UserProfile2(FlaskForm):
     ('90', '7 ft. 6 inch. / 228.6 cm')
     ])
     # current weight = lbs
-    currentweight = SelectField('currentweight', choices=[
+    weight_lbs = SelectField('weight_lbs', choices=[
     ('30', '30 lbs. / 13.61 kg'), ('31', '31 lbs. / 14.06 kg'), ('32', '32 lbs. / 14.51 kg'), ('33', '33 lbs. / 14.97 kg'), ('34', '34 lbs. / 15.42 kg'), ('35', '35 lbs. / 15.88 kg'), ('36', '36 lbs. / 16.33 kg'), ('37', '37 lbs. / 16.78 kg'), ('38', '38 lbs. / 17.24 kg'), ('39', '39 lbs. / 17.69 kg'),
     ('40', '40 lbs. / 18.14 kg'), ('41', '41 lbs. / 18.60 kg'), ('42', '42 lbs. / 19.05 kg'), ('43', '43 lbs. / 19.50 kg'), ('44', '44 lbs. / 19.96 kg'), ('45', '45 lbs. / 20.41 kg'), ('46', '46 lbs. / 20.87 kg'), ('47', '47 lbs. / 21.32 kg'), ('48', '48 lbs. / 21.77 kg'), ('49', '49 lbs. / 22.23 kg'),
     ('50', '50 lbs. / 22.68 kg'), ('51', '51 lbs. / 23.13 kg'), ('52', '52 lbs. / 23.59 kg'), ('53', '53 lbs. / 24.04 kg'), ('54', '54 lbs. / 24.49 kg'), ('55', '55 lbs. / 24.95 kg'), ('56', '56 lbs. / 25.40 kg'), ('57', '57 lbs. / 25.85 kg'), ('58', '58 lbs. / 26.31 kg'), ('59', '59 lbs. / 26.76 kg'),
@@ -147,7 +187,7 @@ class UserProfile2(FlaskForm):
     ('290', '290 lbs. / 131.54 kg'), ('291', '291 lbs. / 132.00 kg'), ('292', '292 lbs. / 132.45 kg'), ('293', '293 lbs. / 132.90 kg'), ('294', '294 lbs. / 133.36 kg'), ('295', '295 lbs. / 133.81 kg'), ('296', '296 lbs. / 134.26 kg'), ('297', '297 lbs. / 134.72 kg'), ('298', '298 lbs. / 135.17 kg'), ('299', '299 lbs. / 135.62 kg'),
     ('300', '300 lbs. / 136.08 kg')
     ])
-    goalweight = SelectField('goalweight', choices=[
+    goal_weight_lbs = SelectField('goal_weight_lbs', choices=[
     ('30', '30 lbs. / 13.61 kg'), ('31', '31 lbs. / 14.06 kg'), ('32', '32 lbs. / 14.51 kg'), ('33', '33 lbs. / 14.97 kg'), ('34', '34 lbs. / 15.42 kg'), ('35', '35 lbs. / 15.88 kg'), ('36', '36 lbs. / 16.33 kg'), ('37', '37 lbs. / 16.78 kg'), ('38', '38 lbs. / 17.24 kg'), ('39', '39 lbs. / 17.69 kg'),
     ('40', '40 lbs. / 18.14 kg'), ('41', '41 lbs. / 18.60 kg'), ('42', '42 lbs. / 19.05 kg'), ('43', '43 lbs. / 19.50 kg'), ('44', '44 lbs. / 19.96 kg'), ('45', '45 lbs. / 20.41 kg'), ('46', '46 lbs. / 20.87 kg'), ('47', '47 lbs. / 21.32 kg'), ('48', '48 lbs. / 21.77 kg'), ('49', '49 lbs. / 22.23 kg'),
     ('50', '50 lbs. / 22.68 kg'), ('51', '51 lbs. / 23.13 kg'), ('52', '52 lbs. / 23.59 kg'), ('53', '53 lbs. / 24.04 kg'), ('54', '54 lbs. / 24.49 kg'), ('55', '55 lbs. / 24.95 kg'), ('56', '56 lbs. / 25.40 kg'), ('57', '57 lbs. / 25.85 kg'), ('58', '58 lbs. / 26.31 kg'), ('59', '59 lbs. / 26.76 kg'),
@@ -180,7 +220,82 @@ class UserProfile2(FlaskForm):
     submit = SubmitField('NEXT')
 
 class UserProfile3(FlaskForm):
-    plandailyeat = IntegerField(render_kw={"placeholder": "Eat (Calories)"}, validators=[DataRequired()])
-    plandailyburn = IntegerField(render_kw={"placeholder": "Burn (Calories)"}, validators=[DataRequired()])
-    bodytype = RadioField('bodytype', choices=[('Round', 'Round'), ('Slender', 'Slender'), ('Athletic', 'Athletic')], validators=[DataRequired()])
+    plan_daily_eat = IntegerField(render_kw={"placeholder": "Eat (Calories)"}, validators=[DataRequired()])
+    plan_daily_burn = IntegerField(render_kw={"placeholder": "Burn (Calories)"}, validators=[DataRequired()])
+    body_type = RadioField('body_type', choices=[('Round', 'Round'), ('Slender', 'Slender'), ('Athletic', 'Athletic')], validators=[DataRequired()])
     submit = SubmitField('NEXT')
+
+#Models (Persistent Database Entities)
+#
+#
+#
+#
+#
+
+class Account(db.Model):
+    __tablename__ = 'accounts'
+    account_id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
+    units = db.Column(db.Enum('Imperial', 'Metric'), nullable=False)
+    activation_status = db.Column(db.Enum('Active', 'Inactive'), nullable=True)
+    activation_date = db.Column(db.Date(), nullable=True)
+    last_login = db.Column(db.Date(), nullable=True)
+
+    #for debugging and testing purposes
+    def __repr__(self):
+        return '<Account %r>' % self.username, self.email, self.password, self.units, self.activation_date, self.last_login
+
+def default_age(context):
+    return context.get_current_parameters()['start_age']
+
+class Profile(db.Model):
+    __tablename__ = 'profiles'
+    profile_id = db.Column(db.Integer, primary_key=True)
+    gender = db.Column(db.Integer, nullable=False)
+    height_inches = db.Column(db.Integer, nullable=False)
+    weight_lbs = db.Column(db.Float, nullable=False)
+    body_type = db.Column(db.Enum('Round', 'Slender', 'Athletic'))
+    birthday = db.Column(db.Date(), nullable=False)
+    start_date = db.Column(db.Date(), nullable=False)
+    start_age = column_property('birthday - start_date') # use " " if problems
+    updated_aged = db.Column(db.Float, default=default_age)
+    goal_weight_lbs = db.Column(db.Integer, nullable=True)
+    rest_meta_rate = db.Column(db.Integer, nullable=True)
+    plan_daily_eat = db.Column(db.Integer, nullable=True)
+    plan_daily_burn = db.Column(db.Integer, nullable=True)
+    plan_daily_change_lbs = column_property('-((rest_meta_rate - plan_daily_eat + plan_daily_burn)/3500)') # use " " if problems
+
+    #for debugging and testing purposes
+    def __repr__(self):
+        return '<Profile %r>' % self.gender, self.height_inches, self.weight_lbs, self.body_type, self.birthday, self.start_date, self.start_age, self.updated_aged, self.goal_weight_lbs, self.rest_meta_rate, self.plan_daily_eat, self.plan_daily_burn, self.plan_daily_change_lbs
+
+class Log(db.Model):
+    __tablename__ = 'logs'
+    log_id = db.Column(db.Integer, primary_key=True)
+    log_datetime = db.Column(db.DateTime(), nullable=True)
+    log_burn = db.Column(db.Integer, nullable=True)
+    log_eat = db.Column(db.Integer, nullable=True)
+    log_energy_remaining = db.Column(db.Integer, nullable=True)
+    log_body_change_lbs = db.Column(db.Float, nullable=True)
+    log_updated_weight_lbs = db.Column(db.Float, nullable=True)
+    distance_from_goal_lbs = db.Column(db.Float, nullable=True)
+    new_rest_meta_rate = db.Column(db.Integer, nullable=True)
+
+    #for debugging and testing purposes
+    def __repr__(self):
+        return '<Log %r>' % self.log_datetime, self.log_burn, self.log_eat, self.log_energy_remaining, self.log_body_change_lbs, self.log_updated_weight_lbs, self.distance_from_goal_lbs, self.new_rest_meta_rate
+
+class Forecast(db.Model):
+    __tablename__ = 'forecasts'
+    forecast_id = db.Column(db.Integer, primary_key=True)
+    forecast_current_date = db.Column(db.DateTime(timezone=True), default=func.now())
+    forecast_projected_date = db.Column(db.Date(), nullable=False)
+    forecast_total_days = column_property('forecast_projected_date - forecast_current_date') # use " " if problems
+    forecast_body_change_lbs = db.Column(db.Float, nullable=False)
+    forecast_projected_weight_lbs = db.Column(db.Float, nullable=False)
+
+    #for debugging and testing purposes
+    def __repr__(self):
+        return '<Forecast %r>' % self.forecast_current_date, self.forecast_projected_date, self.forecast_total_days, self.forecast_body_change_lbs, self.forecast_projected_weight_lbs
