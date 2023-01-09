@@ -232,33 +232,37 @@ class UserProfile3(FlaskForm):
 #
 #
 
-class Account(db.Model):
-    __tablename__ = 'accounts'
-    account_id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(120), nullable=False)
-    units = db.Column(db.Enum('Imperial', 'Metric'), nullable=False)
+class User(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(80), unique=True, nullable=True)
+    email = db.Column(db.String(120), unique=True, nullable=True)
+    password = db.Column(db.String(120), nullable=True)
+    units = db.Column(db.Enum('Imperial', 'Metric'), nullable=True)
     activation_status = db.Column(db.Enum('Active', 'Inactive'), nullable=True)
     activation_date = db.Column(db.Date(), nullable=True)
     last_login = db.Column(db.Date(), nullable=True)
+    #Relationships
+    profile_id = db.Column(db.Integer, db.ForeignKey('profiles.id'))
+    role_id = db.Column(db.Integer, db.ForeignKey('roles.id'))
 
     #for debugging and testing purposes
     def __repr__(self):
-        return '<Account %r>' % self.username, self.email, self.password, self.units, self.activation_date, self.last_login
+        template = '<User "{0.username}">'
+        return template.format(self)
 
 def default_age(context):
     return context.get_current_parameters()['start_age']
 
 class Profile(db.Model):
     __tablename__ = 'profiles'
-    profile_id = db.Column(db.Integer, primary_key=True)
-    gender = db.Column(db.Integer, nullable=False)
-    height_inches = db.Column(db.Integer, nullable=False)
-    weight_lbs = db.Column(db.Float, nullable=False)
+    id = db.Column(db.Integer, primary_key=True)
+    gender = db.Column(db.Integer, nullable=True)
+    height_inches = db.Column(db.Integer, nullable=True)
+    weight_lbs = db.Column(db.Float, nullable=True)
     body_type = db.Column(db.Enum('Round', 'Slender', 'Athletic'))
-    birthday = db.Column(db.Date(), nullable=False)
-    start_date = db.Column(db.Date(), nullable=False)
+    birthday = db.Column(db.Date(), nullable=True)
+    start_date = db.Column(db.Date(), nullable=True)
     start_age = column_property('birthday - start_date') # use " " if problems
     updated_aged = db.Column(db.Float, default=default_age)
     goal_weight_lbs = db.Column(db.Integer, nullable=True)
@@ -266,14 +270,19 @@ class Profile(db.Model):
     plan_daily_eat = db.Column(db.Integer, nullable=True)
     plan_daily_burn = db.Column(db.Integer, nullable=True)
     plan_daily_change_lbs = column_property('-((rest_meta_rate - plan_daily_eat + plan_daily_burn)/3500)') # use " " if problems
+    #relationships
+    logs = db.relationship('Log', backref='profile')
+    forecasts = db.relationship('Forecast', backref='profile')
+    users = db.relationship('User', uselist=False, backref='profile')
 
     #for debugging and testing purposes
     def __repr__(self):
-        return '<Profile %r>' % self.gender, self.height_inches, self.weight_lbs, self.body_type, self.birthday, self.start_date, self.start_age, self.updated_aged, self.goal_weight_lbs, self.rest_meta_rate, self.plan_daily_eat, self.plan_daily_burn, self.plan_daily_change_lbs
+        template = '<Gender "{0.gender}"> <Height "{0.height_inches}">'
+        return template.format(self)
 
 class Log(db.Model):
     __tablename__ = 'logs'
-    log_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     log_datetime = db.Column(db.DateTime(), nullable=True)
     log_burn = db.Column(db.Integer, nullable=True)
     log_eat = db.Column(db.Integer, nullable=True)
@@ -282,20 +291,38 @@ class Log(db.Model):
     log_updated_weight_lbs = db.Column(db.Float, nullable=True)
     distance_from_goal_lbs = db.Column(db.Float, nullable=True)
     new_rest_meta_rate = db.Column(db.Integer, nullable=True)
+    #relationships
+    profile_id = db.Column(db.Integer, db.ForeignKey('profiles.id'))
 
     #for debugging and testing purposes
     def __repr__(self):
-        return '<Log %r>' % self.log_datetime, self.log_burn, self.log_eat, self.log_energy_remaining, self.log_body_change_lbs, self.log_updated_weight_lbs, self.distance_from_goal_lbs, self.new_rest_meta_rate
+        template = '<DateTime "{0.log_datetime}"> <Burn "{0.log_burn}">'
+        return template.format(self)
 
 class Forecast(db.Model):
     __tablename__ = 'forecasts'
-    forecast_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
     forecast_current_date = db.Column(db.DateTime(timezone=True), default=func.now())
-    forecast_projected_date = db.Column(db.Date(), nullable=False)
+    forecast_projected_date = db.Column(db.Date(), nullable=True)
     forecast_total_days = column_property('forecast_projected_date - forecast_current_date') # use " " if problems
-    forecast_body_change_lbs = db.Column(db.Float, nullable=False)
-    forecast_projected_weight_lbs = db.Column(db.Float, nullable=False)
+    forecast_body_change_lbs = db.Column(db.Float, nullable=True)
+    forecast_projected_weight_lbs = db.Column(db.Float, nullable=True)
+    #relationships
+    profile_id = db.Column(db.Integer, db.ForeignKey('profiles.id'))
 
     #for debugging and testing purposes
     def __repr__(self):
-        return '<Forecast %r>' % self.forecast_current_date, self.forecast_projected_date, self.forecast_total_days, self.forecast_body_change_lbs, self.forecast_projected_weight_lbs
+        template = '<Current Date "{0.forecast_current_date}"> <Projected Date "{0.forecast_projected_date}">'
+        return template.format(self)
+
+class Role(db.Model):
+    __tablename__ = 'roles'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(64), unique=True)
+    #relationships
+    users = db.relationship('User', backref='role', lazy='dynamic')
+
+    #for debugging and testing purposes
+    def __repr__(self):
+        template = '<Role "{0.name}">'
+        return template.format(self)
