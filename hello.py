@@ -44,6 +44,10 @@ app.config['MAIL_USE_SSL'] = False
 app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
 app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
 
+app.config['AF_INTERNAL_MAIL_SUBJECT_PREFIX'] = '[INTERNAL]'
+app.config['AF_MAIL_SENDER'] = 'Application Fitness <support@applicationfitness.com>'
+app.config['AF_ADMIN'] = os.environ.get('AF_ADMIN')
+
 mail = Mail(app)
 
 
@@ -142,8 +146,10 @@ def signup5():
         if user is None:
             user = User(username=form5.name.data)
             db.session.add(user)
-            db.session.commit()
+            #db.session.commit()
             session['known'] = False
+            if app.config['AF_ADMIN']:
+                send_email(app.config['AF_ADMIN'], 'New User', 'mail/new_user', user=user)
         else:
             session['known'] = True
         session['name'] = form5.name.data
@@ -151,11 +157,12 @@ def signup5():
         return redirect(url_for('signup5'))
     return render_template("sign_up5-1.html", form5=form5, name=session.get('name'), known=session.get('known', False))
 
-#testing
+#email testing
 @app.route("/mailtest")
 def mailtest():
-   msg = Message('Hello4', sender = 'support@applicationfitness.com', recipients = ['derekwarming@gmail.com'])
-   msg.body = "Hello Flask message sent from Flask-Mail-4"
+   msg = Message('Hello5', sender=app.config['AF_MAIL_SENDER'], recipients = ['derekwarming@gmail.com'])
+   # -> msg.body = "Hello Flask message sent from Flask-Mail-5" <- replaced by msg.html
+   msg.html = render_template('mail/new_user.html')
    mail.send(msg)
    return "Sent"
 
@@ -382,3 +389,16 @@ class Role(db.Model):
     def __repr__(self):
         template = '<Role "{0.name}">'
         return template.format(self)
+
+#Email
+#
+#
+#
+#
+#
+
+def send_email(to, subject, template, **kwargs):
+    msg = Message(app.config['AF_INTERNAL_MAIL_SUBJECT_PREFIX'] + subject, sender=app.config['AF_MAIL_SENDER'], recipients=[to])
+    msg.body = render_template(template + '.txt', **kwargs)
+    msg.html = render_template(template + '.html', **kwargs)
+    mail.send(msg)

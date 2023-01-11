@@ -1,0 +1,1 @@
+Yo, new user. {{ user }}
