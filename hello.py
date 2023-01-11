@@ -17,6 +17,7 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import column_property
 from sqlalchemy.sql import func
+from flask_migrate import Migrate
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -30,11 +31,20 @@ app.config['SQLALCHEMY_DATABASE_URI'] =\
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
-
-
+migrate =Migrate(app, db)
 
 #shortcut icon located in bootstrap/base.html
 
+#Automatically import database instances, models, and objects
+#
+#
+#
+#
+#
+
+@app.shell_context_processor
+def make_shell_context():
+    return dict(db=db, User=User, Profile=Profile, Log=Log, Forecast=Forecast, Role=Role)
 
 #Routes
 #
@@ -104,9 +114,27 @@ def signup4():
         return redirect(url_for('signup5'))
     return render_template("sign_up4-3.html", form4=form4, plan_daily_eat=session.get('plan_daily_eat'), plan_daily_burn=session.get('plan_daily_burn'), body_type=session.get('body_type'))
 
-@app.route("/sign_up5-1")
+#Real route; Being used for testing - started as:
+        #  @app.route("/sign_up5-1")
+        #  def signup5():
+        #      return render_template("sign_up5-1.html")
+#Don't delete, but return to normal form
+@app.route("/sign_up5-1", methods=['GET', 'POST'])
 def signup5():
-    return render_template("sign_up5-1.html")
+    form5 = NameForm()
+    if form5.validate_on_submit():
+        user = User.query.filter_by(username=form5.name.data).first()
+        if user is None:
+            user = User(username=form5.name.data)
+            db.session.add(user)
+            db.session.commit()
+            session['known'] = False
+        else:
+            session['known'] = True
+        session['name'] = form5.name.data
+        form5.name.data = ''
+        return redirect(url_for('signup5'))
+    return render_template("sign_up5-1.html", form5=form5, name=session.get('name'), known=session.get('known', False))
 
 #Error Pages
 #
@@ -225,6 +253,11 @@ class UserProfile3(FlaskForm):
     body_type = RadioField('body_type', choices=[('Round', 'Round'), ('Slender', 'Slender'), ('Athletic', 'Athletic')], validators=[DataRequired()])
     submit = SubmitField('NEXT')
 
+#Probably going to delete this - currently used for testing
+class NameForm(FlaskForm):
+	name = StringField('What is your name?', validators=[DataRequired()])
+	submit = SubmitField('Submit')
+
 #Models (Persistent Database Entities)
 #
 #
@@ -290,7 +323,7 @@ class Log(db.Model):
     log_body_change_lbs = db.Column(db.Float, nullable=True)
     log_updated_weight_lbs = db.Column(db.Float, nullable=True)
     distance_from_goal_lbs = db.Column(db.Float, nullable=True)
-    new_rest_meta_rate = db.Column(db.Integer, nullable=True)
+    new_rest_metabolic_rate = db.Column(db.Integer, nullable=True)
     #relationships
     profile_id = db.Column(db.Integer, db.ForeignKey('profiles.id'))
 

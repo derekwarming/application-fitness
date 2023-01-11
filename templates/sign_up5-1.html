@@ -1,30 +1,48 @@
+{% import "bootstrap/wtf.html" as wtf %}
+
 <html>
 <head>
+  <link rel="icon" type="image/png" href="{{ url_for('static',filename='styles/logo4.png')}}">
+  <!-- Favicon -->
 <title>Application Fitness - Account Created</title>
 <link rel="stylesheet" href="sign_up.css">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/landing-page.css')}}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/sign_up2.css')}}">
+<!--This may not be the official way to link a stylesheet-->
 </head>
 <body>
   <header class="header2">
     <table class="header-table2">
       <tr>
-      <th id="header1"></th>
+      <th id="header1"><a href="/" id="home-link"><img src="{{ url_for('static',filename='styles/logo4.png')}}" id="headbrand1"></a></th>
       <th id="header2"></th>
       <th id="header3"></th>
       <th id="header4"></th>
     </tr>
     </table>
   </header>
+  <!-- development testing only - delete after testing -->
+  <div class="page-header">
+    <h1>Hello, {% if name %}{{ name }}{% else %}Stranger{% endif %}!</h1>
+    {% if not known %}
+    <p>Pleased to meet you!</p>
+    {% else %}
+    <p>Happy to see you again!</p>
+    {% endif %}
+  </div>
+  {{ wtf.quick_form(form5) }}
+  <!-- development testing only - delete after testing -->
   <section class="sign-up-main1">
     <table class="sign-up-table1">
       <tr>
-        <th id="row1">Congratulations!</th>
+        <th id="row1">Success!</th>
       </tr>
     </table>
     <p style="text-align:center;">As an Application Fitness member, you'll have access to your very own fitness profile!</p>
     <table class="sign-up-table7">
       <tr>
-        <td class="row2"><a href="sign_up4.html"><button id="button6">BACK</button></a></td>
-        <td class="row2"><a href=""><button id="button5">NEXT</button></a></td>
+        <td class="row2"><a href="/sign_up4-3"><button id="button6">BACK</button></a></td>
+        <td class="row2"><a href="/user/derek"><button id="button5">NEXT</button></a></td>
       </tr>
     </table>
   </section>
