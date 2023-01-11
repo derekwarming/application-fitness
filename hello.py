@@ -19,6 +19,9 @@ from sqlalchemy.orm import column_property
 from sqlalchemy.sql import func
 from flask_migrate import Migrate
 
+from flask_mail import Mail, Message
+import myEnvVal
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
@@ -32,6 +35,18 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 migrate =Migrate(app, db)
+
+myEnvVal.setVar()
+app.config['MAIL_SERVER'] = 'smtp.ionos.com'
+app.config['MAIL_PORT'] = 587
+app.config['MAIL_USE_TLS'] = True
+app.config['MAIL_USE_SSL'] = False
+app.config['MAIL_USERNAME'] = os.environ.get('MAIL_USERNAME')
+app.config['MAIL_PASSWORD'] = os.environ.get('MAIL_PASSWORD')
+
+mail = Mail(app)
+
+
 
 #shortcut icon located in bootstrap/base.html
 
@@ -135,6 +150,14 @@ def signup5():
         form5.name.data = ''
         return redirect(url_for('signup5'))
     return render_template("sign_up5-1.html", form5=form5, name=session.get('name'), known=session.get('known', False))
+
+#testing
+@app.route("/mailtest")
+def mailtest():
+   msg = Message('Hello4', sender = 'support@applicationfitness.com', recipients = ['derekwarming@gmail.com'])
+   msg.body = "Hello Flask message sent from Flask-Mail-4"
+   mail.send(msg)
+   return "Sent"
 
 #Error Pages
 #
